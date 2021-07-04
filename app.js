@@ -10,6 +10,7 @@ require('dotenv').config()
 let workbook = new excel.Workbook();
 let worksheet = workbook.addWorksheet("Tutorials");
 
+
 mongoose
 	.connect(process.env.MONGO_URL, {
 		useNewUrlParser: true,
@@ -83,7 +84,7 @@ if(newData) {
 
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log("server is running on port 3000...")
 
 })
