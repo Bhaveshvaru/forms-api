@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const FormSchema = require("./model")
 const morgan = require("morgan");
 const excel = require("exceljs");
+const cors = require("cors")
 require('dotenv').config()
 
 let workbook = new excel.Workbook();
@@ -20,6 +21,7 @@ mongoose
 	.catch(err => console.log(err.message));
 
 //apply middleware
+app.use(cors())
 app.use(bodyParser());
 app.use(morgan())
 
